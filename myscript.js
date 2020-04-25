@@ -1,12 +1,13 @@
 
-var TOTAL_PLAYERS = 20
+var TOTAL_PLAYERS = 0
 var Jugador = new Array(20);
 var turno = 0;
 var LABEL_TURNO = "turno=";
 var LABEL_PLAYER = "numPlayer="
-
-document.write("Control 0");
+	
 /*
+document.write("Control 0");
+
 numPlayerLit = getLabel(document.URL, LABEL_PLAYER);
 document.write("<br>htmlturno" + numPlayerLit);
 
@@ -19,6 +20,7 @@ document.write("<br>htmlturno" + numPlayerLit);
 	//return False;
 //}
 */
+/*
 numPlayerLit = getLabel(document.URL, LABEL_PLAYER);
 document.write("<br>numPlayerLit" + numPlayerLit);
 if(numPlayerLit != ""){
@@ -36,7 +38,7 @@ for (cont = 0; cont < TOTAL_PLAYERS; cont++){
 }
 
 runApp()
-
+*/
 /*
 document.write("Seguimos con el codigo");
 var J1 = new creaJugador("Pablo ");
@@ -123,6 +125,18 @@ function getName(name){
 	document.write(this.name);
 	
 }	
+
+function addPlayer(){
+	document.write("running addPlayer");
+	TOTAL_PLAYERS = TOTAL_PLAYERS + 1;
+	name = document.getElementById("idJugador");
+	document.write("name: " + name);
+	document.write("TOTAL_PLAYERS: " + TOTAL_PLAYERS);
+	Jugador[TOTAL_PLAYERS-1] = new creaJugador(name);
+	showAllPlayers();
+	
+	return false;
+}
 function showAllPlayers(){
 	//document.write("<h1><p align=\"center\">Feudali</p></h1>")
 	//showForm()

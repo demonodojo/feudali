@@ -20,7 +20,10 @@
 		event.preventDefault();
     TOTAL_PLAYERS = TOTAL_PLAYERS + 1;
 		$tbody = $('table.players').find('tbody');
-		$tbody.append('<tr><td>'+$('#idJugador').val()+'</td></tr>');
+		val = $('#idJugador').val();
+		if ($tbody.find('#'+ val).length == 0) {
+			$tbody.append('<tr><td id="'+val+'">'+val+'</td></tr>');
+		}
 		
 		return false;
 	}

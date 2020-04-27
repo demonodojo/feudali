@@ -4,6 +4,8 @@
 	
 	<title>Peticiones de datos </title>
 	<link rel="stylesheet" type="text/css" href="feudali.css" /> 
+	<script src = "jquery-3.5.0.min.js" type="text/javascript"> </script>
+
 </head>
 <body>
 	<h1>
@@ -12,27 +14,31 @@
 
 	<script src = "myscript.js" type="text/javascript"> </script>
 	
-	<script language = "JavaScript" type="text/javascript"> 
-	function addPlayer( ){
-		document.write("running addPlayer");
-		TOTAL_PLAYERS = TOTAL_PLAYERS + 1;
-		name = document.getElementById("idJugador");
-		document.write("name: " + name);
-		document.write("TOTAL_PLAYERS: " + TOTAL_PLAYERS);
-		Jugador[TOTAL_PLAYERS-1] = new creaJugador(name);
-		showAllPlayers();
+	<script type="text/javascript"> 
+	var TOTAL_PLAYERS = 0;
+	function addPlayer2(event){
+		event.preventDefault();
+    TOTAL_PLAYERS = TOTAL_PLAYERS + 1;
+		$tbody = $('table.players').find('tbody');
+		$tbody.append('<tr><td>'+$('#idJugador').val()+'</td></tr>');
 		
 		return false;
 	}
 	</script>
 	
-	<form onSubmit="return addPlayer( )" name = "formulario_1">	
+	<form name = "formulario_1">	
 		Nombre del jugador:
 		<input name = "Jugador" type="text" value = "Pepito" id="idJugador"><br>
 		
-		<input type="submit" value="Otro jugador" name="B_Jugador" id ="addPlayer">
+		<input type="button" value="Otro jugador" name="B_Jugador" id ="addPlayer" onclick="addPlayer2(event);">
 		
 	</form>
+	<table class="players">
+		<thead>
+			<th><td>Jugador</td></th>
+		</thead>
+		<tbody></tbody>
+	</table>
 
 	<form onSubmit="Feudali.html" name = "formulario_2">	
 		<input type="submit" value="Empezar la partida" name="new Turn">
